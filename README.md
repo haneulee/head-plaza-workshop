@@ -15,8 +15,8 @@
 |Monday|Production|   
 |Tuesday|Production|   
 |Wednesday|Production|   
-|Thursday|Internal Presentation|   
-|Friday|Presentation with Fondation Plaza|
+|Thursday|Internal Presentation, PDF delivery EOD|   
+|Friday|Presentation with Fondation Plaza (3PM – 5PM)|
 
 
 ## Links
