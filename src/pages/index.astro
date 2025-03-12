@@ -47,12 +47,12 @@ let projects = await getCollection("projects");
     </Container>
     <Container>
       <div class="flex flex-col gap-4">
-        <h2 class="font-heading text-4xl">Posts</h2>
+        <h2 class="font-heading text-4xl">Experiments</h2>
         {
           posts &&
             posts.map(({ id, data }) => {
               const { title } = data;
-              return <a href={id}>{title}</a>;
+              return <a href={id} class="tib-rp text-lg md:text-2xl lg:text-2xl mt-1 underline">{title}</a>;
             })
         }
       </div>
