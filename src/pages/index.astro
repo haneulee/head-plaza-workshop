@@ -1,31 +1,72 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Heading from "../components/Heading.astro";
+import Container from "../components/Container.astro";
+import Grid from "../components/Grid.astro";
+import Video from "../components/Video.astro";
 import Markdown from "../components/Markdown.astro";
 import Readme from "../../README.md";
-
 import { getCollection, render } from "astro:content";
 let posts = await getCollection("posts");
-
+let projects = await getCollection("projects");
 ---
 
 <Layout>
-  <main class="max-w-screen-xl mx-auto grid grid-cols-2 gap-8">
-    <Markdown>
-      <Readme />
-    </Markdown>
-    <div class="flex flex-col gap-6">
-      <h2 class="font-heading text-4xl">Posts</h2>
-      {
-        posts &&
-          posts.map(({ id, data }) => {
-            const { title } = data;
-            return (
-              <a href={id}>
-                {title}
-              </a>
-            );
-          })
-      }
-    </div>
+  <main
+    class="mx-auto flex max-w-[75rem] flex-col gap-8 pt-8 pb-0 md:gap-12 lg:pt-16 lg:pb-32"
+  >
+    <Container>
+      <h1>Plaza Workshop</h1>
+      <h2>Interactive Installations for Cinema Exploration</h2>
+      <h2>
+        This workshop challenged first-year Media Design students from HEAD –
+        Genève to create interactive installations that invite the public to
+        engage with the world of cinema. Through experimentation with
+        storytelling, history, and technology, participants designed playful and
+        immersive experiences that spark curiosity and interaction. The final
+        prototypes were exhibited at Plaza Cinema, offering visitors new ways to
+        experience and participate in cinematic storytelling.
+      </h2>
+    </Container>
+    <Container>
+      <Heading>Projects</Heading>
+      <Grid>
+        {
+          projects &&
+            projects.map((project) => {
+              const { id, data } = project;
+              const { thumbnail_video, thumbnail_image, title, subtitle } =
+                data;
+              const url = `projects/${id}`;
+
+              return (
+                <a href={url}>
+                  <Video src={thumbnail_video} poster={thumbnail_image} />
+                  <h3>
+                    {title} – {subtitle}
+                  </h3>
+                </a>
+              );
+            })
+        }
+      </Grid>
+    </Container>
+    <Container>
+      <div class="flex flex-col gap-4">
+        <h2 class="font-heading text-4xl">Posts</h2>
+        {
+          posts &&
+            posts.map(({ id, data }) => {
+              const { title } = data;
+              return <a href={id}>{title}</a>;
+            })
+        }
+      </div>
+    </Container>
+    <Container>
+      <Markdown>
+        <Readme />
+      </Markdown>
+    </Container>
   </main>
 </Layout>

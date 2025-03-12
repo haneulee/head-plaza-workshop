@@ -1,5 +1,5 @@
 ---
-const { src } = Astro.props;
+const { src, poster } = Astro.props;
 ---
 
-<video src={src} muted playsinline autoplay loop></video>
+<video src={src} muted playsinline autoplay loop {poster}></video>

@@ -1,5 +1,33 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+// get the content collection
+import { getCollection, render } from "astro:content";
 
+export async function getStaticPaths() {
+  let projects = await getCollection("projects");
+
+  return projects.map((page) => {
+    const { title, slug } = page.data;
+    return {
+      params: { slug: page.id },
+      props: { ...page },
+    };
+  });
+}
+
+const { title, subtitle } = Astro.props.data;
+const { Content } = await render(Astro.props);
 ---
 
-
+<Layout>
+  <main class="flex flex-col gap-8 pt-8 pb-0 md:gap-12 lg:pt-16 lg:pb-32">
+    <Container>
+      <h1 class="tib-rp text-4xl md:text-6xl lg:text-8xl">{title}</h1>
+      <h2 class="tib-rp text-lg md:text-2xl lg:text-4xl" style="max-width: 80%;">
+        {subtitle}
+      </h2>
+    </Container>
+    <Content />
+  </main>
+</Layout>
