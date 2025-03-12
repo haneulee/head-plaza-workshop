@@ -63,9 +63,41 @@ const postLoader: Loader = {
   },
 };
 
+const projectLoader: Loader = {
+  ...glob,
+  name: "Project Loader",
+  load: async (loaderParams) => {
+    const { store } = loaderParams;
+    const baseLoader = glob({
+      pattern: "**/*.mdx",
+      base: "./src/content/projects",
+    });
+    await baseLoader.load.call(this, loaderParams);
+    let items = [...store.entries()].map(([_, value]) => value);
+    items = items.map((item) => {
+      const title = item.data.title;
+      return {
+        ...item,
+        data: {
+          ...item.data,
+          slug: slug(title),
+        },
+      };
+    });
+    store.clear();
+    items.forEach((item) => {
+      store.set({ ...item });
+    });
+  },
+};
+
+const projects = defineCollection({
+  loader: projectLoader,
+});
+
 const posts = defineCollection({
   loader: postLoader,
 });
 
 
-export const collections = { pages, posts };
+export const collections = { pages, posts, projects };

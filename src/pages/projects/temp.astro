@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+// get the content collection
+import { getCollection, render } from "astro:content";
+
+let projects = await getCollection("projects");
+const { Content } = await render(projects[0]);
+---
+
+<Layout>
+  <Container>
+    <Content />
+  </Container>
+</Layout>

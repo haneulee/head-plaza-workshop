@@ -14,6 +14,7 @@ const {
   title = defaultTitle,
   description = defaultDescription,
   image = defaultImage,
+  class: className,
 } = Astro.props;
 const SITE = import.meta.env.SITE;
 const currentUrl = new URL(Astro.url.pathname, SITE).toString();
@@ -41,7 +42,7 @@ const currentUrl = new URL(Astro.url.pathname, SITE).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
   </head>
-  <body class="mx-auto mt-8 pb-16">
+  <body class:list={["mx-auto mt-8 pb-16", className]}>
     <slot />
   </body>
 </html>

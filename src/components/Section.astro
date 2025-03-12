@@ -1,0 +1,17 @@
+---
+import Container from "./Container.astro";
+import Heading from "./Heading.astro";
+import Grid from "./Grid.astro";
+
+const { title } = Astro.props;
+---
+
+<Container>
+  <Grid classes="grid-cols-1 md:grid-cols-2 gap-0 md:gap-4 sm:gap-0">
+    <Heading classes="tib-rp">{title}</Heading>
+    <div class="tib-text tib-rp prose pl-8 md:pl-0">
+      <slot />
+    </div>
+  </Grid>
+  <Container />
+</Container>

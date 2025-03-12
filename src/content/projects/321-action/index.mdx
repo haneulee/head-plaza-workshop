@@ -1,0 +1,59 @@
+---
+title: Test
+subtitle: Test
+description: test
+thumbnail_image: https://i.imgur.com/dLjE34A.jpeg
+thumbnail_video: https://i.imgur.com/nSA9QAL.mp4
+ogImage: https://localhost2025.metaa.ch/og.png
+---
+
+import Heading from "../../../components/Heading.astro";
+import Grid from "../../../components/Grid.astro";
+import Video from "../../../components/Video.astro";
+import Vimeo from "../../../components/Vimeo.astro";
+import Image from "../../../components/Image.astro";
+import BigText from "../../../components/BigText.astro";
+import Section from "../../../components/Section.astro";
+import Container from "../../../components/Container.astro";
+
+<Vimeo vimeoID="1019560381" />
+<Container>
+  <BigText>Some big text to describe the project</BigText>
+</Container>
+
+<Grid cols="2">
+  <Image src="https://i.imgur.com/dLjE34A.jpeg" alt="A cube in space" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+</Grid>
+
+<Section title="Description">
+
+Some text over here, ic can be a lot or little
+
+</Section>
+
+<Section title="Technical Materials">
+
+Some text over here, ic can be a lot or little
+
+</Section>
+
+<Container>
+<Heading classes="tib-rp mb-4">Experiments</Heading>
+<Grid cols={4}>
+
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+  <Video src="https://i.imgur.com/nSA9QAL.mp4" />
+
+</Grid>
+</Container>
+
+
