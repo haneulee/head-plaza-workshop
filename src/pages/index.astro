@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/Heading.astro";
+import BigText from "../components/BigText.astro";
 import Container from "../components/Container.astro";
 import Grid from "../components/Grid.astro";
 import Video from "../components/Video.astro";
@@ -16,20 +17,13 @@ let projects = await getCollection("projects");
     class="mx-auto flex max-w-[75rem] flex-col gap-8 pt-8 pb-0 md:gap-12 lg:pt-16 lg:pb-32"
   >
     <Container>
-      <h1>Plaza Workshop</h1>
-      <h2>Interactive Installations for Cinema Exploration</h2>
-      <h2>
-        This workshop challenged first-year Media Design students from HEAD –
-        Genève to create interactive installations that invite the public to
-        engage with the world of cinema. Through experimentation with
-        storytelling, history, and technology, participants designed playful and
-        immersive experiences that spark curiosity and interaction. The final
-        prototypes were exhibited at Plaza Cinema, offering visitors new ways to
-        experience and participate in cinematic storytelling.
-      </h2>
+      <h1 class="tib-rp text-4xl md:text-6xl lg:text-8xl">Plaza Workshop</h1>
+      <h2 class="  tib-rp text-lg md:text-2xl lg:text-4xl hidden">Playful Cinema Experiences by HEAD Media Design Students</h2>
+      <BigText>
+        Playful Cinema Experiences by HEAD Media Design Students
+      </BigText>
     </Container>
     <Container>
-      <Heading>Projects</Heading>
       <Grid>
         {
           projects &&
@@ -42,7 +36,7 @@ let projects = await getCollection("projects");
               return (
                 <a href={url}>
                   <Video src={thumbnail_video} poster={thumbnail_image} />
-                  <h3>
+                  <h3 class="tib-rp text-lg md:text-2xl lg:text-2xl mt-1">
                     {title} – {subtitle}
                   </h3>
                 </a>
