@@ -6,10 +6,18 @@ import { getCollection, render } from "astro:content";
 
 let projects = await getCollection("projects");
 const { Content } = await render(projects[0]);
+
+const { title, subtitle } = projects[0].data;
 ---
 
 <Layout>
-  <Container>
+  <main class="flex flex-col gap-8 pt-8 pb-0 md:gap-12 lg:pt-16 lg:pb-32">
+    <Container>
+      <h1 class="tib-rp text-4xl md:text-6xl">{title}</h1>
+      <h2 class="tib-rp text-lg md:text-2xl" style="max-width: 80%;">
+        {subtitle}
+      </h2>
+    </Container>
     <Content />
-  </Container>
+  </main>
 </Layout>

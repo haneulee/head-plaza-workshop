@@ -10,24 +10,30 @@
 }
 
 @font-face {
-  font-family: Rubik;
+  font-family: Inter;
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/Rubik-VariableFont_wght.woff2") format("woff2");
+  src: url("/fonts/InterVariable.woff2") format("woff2");
 }
 
 @theme {
   --font-rubik: "Rubik", "sans-serif";
   --font-outfit: "Outfit", "sans-serif";
+  --font-inter: "Inter", "sans-serif";
 
-  --font-sans: var(--font-rubik);
-  --font-body: var(--font-rubik);
-  --font-heading: var(--font-outfit);
+  --font-sans: var(--font-inter);
+  --font-body: var(--font-inter);
+  --font-heading: var(--font-inter);
 
 }
 
 @layer components {
+  .tib-rp {
+    @apply px-4 sm:px-8 md:px-8 lg:px-0;
+  }
+
+
   .prose {
     h1, h2, h3, h4, h5, h6 {
       @apply font-heading text-4xl font-medium !mt-0 !mb-6;
