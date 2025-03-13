@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Markdown from "../components/Markdown.astro";
+import Container from "../components/Container.astro";
 
 export async function getStaticPaths() {
   let pages = await getCollection("pages");
@@ -32,9 +33,11 @@ const { title } = Astro.props.data;
 
 <Layout>
   <main class="max-w-screen-sm mx-auto">
-    <h1 class="font-heading text-6xl mb-5">{title}</h1>
-    <Markdown>
+    <Container>
+    <h1 class="tib-rp text-4xl md:text-6xl lg:text-8xl">{title}</h1>
+    <Markdown class="tib-rp">
       <Content />
-    </Markdown>
+      </Markdown>
+    </Container>
   </main>
 </Layout>

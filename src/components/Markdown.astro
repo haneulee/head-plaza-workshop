@@ -1,9 +1,9 @@
 ---
-
+const {class: className} = Astro.props;
 ---
 
 <div
-  class="prose prose-code:text-wrap prose-table:border-none prose-ul:pl-0 prose-li:pl-0 prose-a:font-normal prose-h1:hidden prose-th:text-base prose-thead:font-normal prose-headings:font-normal prose-h1:text-6xl prose-headings:text-4xl prose-ul:pl-4 prose-table:table-fixed prose-th:first:w-1/4 text-black marker:text-black [&_ol]:pl-[1rem]"
+  class:list={["prose prose-code:text-wrap prose-table:border-none prose-ul:pl-0 prose-li:pl-0 prose-a:font-normal prose-h1:hidden prose-th:text-base prose-thead:font-normal prose-headings:font-normal prose-h1:text-6xl prose-headings:text-4xl prose-ul:pl-4 prose-table:table-fixed prose-th:first:w-1/4 text-black marker:text-black [&_ol]:pl-[1rem]", className]}
 >
   <slot />
 </div>
